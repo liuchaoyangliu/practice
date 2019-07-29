@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzti.practice.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zzti.practice.entity.User">
+        <id column="workNumber" property="workNumber" />
+        <result column="name" property="name" />
+        <result column="age" property="age" />
+        <result column="sex" property="sex" />
+        <result column="password" property="password" />
+        <result column="address" property="address" />
+        <result column="phone" property="phone" />
+        <result column="position" property="position" />
+        <result column="institutions" property="institutions" />
+        <result column="salary" property="salary" />
+        <result column="flag" property="flag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        workNumber, name, age, sex, password, address, phone, position, institutions, salary, flag
+    </sql>
+
+</mapper>
