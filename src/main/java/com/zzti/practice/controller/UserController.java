@@ -1,9 +1,13 @@
 package com.zzti.practice.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.zzti.practice.config.ResponseResult;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
+
+import java.util.HashMap;
 
 /**
  * <p>
@@ -16,6 +20,18 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    @ApiOperation(value = "is login successful?")
+    @ResponseBody
+    @RequestMapping(value = "/login")
+    public String login(@RequestParam(value = "username") String username,
+                        @RequestParam(value = "password") String password) {
+
+        if(username.equals("1234") && password.equals("1234")){
+            return "success";
+        }
+        return "failure";
+    }
 
 }
 
