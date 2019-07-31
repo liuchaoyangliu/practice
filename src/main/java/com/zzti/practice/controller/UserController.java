@@ -1,13 +1,9 @@
 package com.zzti.practice.controller;
 
-
-import com.zzti.practice.config.ResponseResult;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-
-import java.util.HashMap;
 
 /**
  * <p>
