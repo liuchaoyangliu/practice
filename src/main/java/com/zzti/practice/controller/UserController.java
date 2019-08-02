@@ -36,7 +36,9 @@ public class UserController {
 
         User login = userService.login(username, password);
         if(login != null){
+
             session.setAttribute("workNumber", login.getWorkNumber());
+            System.out.println(session.getAttribute("workNumber") + "########################");
             return "success";
         }
         return "failure";

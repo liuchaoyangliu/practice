@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author lcy
- * @since 2019-07-29
+ * @since 2019-08-02
  */
 public class Log extends Model<Log> {
 
@@ -25,7 +25,7 @@ public class Log extends Model<Log> {
 
     private String operation;
 
-
+    @TableField("workNumber")
     private String workNumber;
 
 
@@ -69,10 +69,10 @@ public class Log extends Model<Log> {
     @Override
     public String toString() {
         return "Log{" +
-        "id=" + id +
-        ", createtime=" + createtime +
-        ", operation=" + operation +
-        ", workNumber=" + workNumber +
-        "}";
+                "id=" + id +
+                ", createtime=" + createtime +
+                ", operation=" + operation +
+                ", workNumber=" + workNumber +
+                "}";
     }
 }

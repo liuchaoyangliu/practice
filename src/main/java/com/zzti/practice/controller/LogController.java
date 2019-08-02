@@ -1,13 +1,13 @@
 package com.zzti.practice.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.zzti.practice.service.LogService;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * <p>
@@ -21,6 +21,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/log")
 public class LogController {
 
+    @Autowired
+    LogService logService;
+
+    @ResponseBody
+    @GetMapping("/getList")
+    public IPage getList1(@RequestParam(value = "page", defaultValue = "1") Integer pageNum,
+                          @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize){
+        System.out.println("获取日志列表方法");
+        return logService.getList(pageNum, pageSize);
+    }
 
 }
 

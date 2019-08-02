@@ -1,5 +1,6 @@
 package com.zzti.practice.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zzti.practice.entity.Log;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -14,5 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface LogService extends IService<Log> {
 
     void insert(Log log);
+
+    IPage getList(int pageNum, int pageSize);
 
 }

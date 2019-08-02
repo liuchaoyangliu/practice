@@ -1,20 +1,35 @@
 package com.zzti.practice.config;
 
 import com.zzti.practice.entity.Log;
-import org.springframework.stereotype.Component;
+import com.zzti.practice.service.LogService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Component
+@Service
 public class LogUtil {
 
-    public Log getLog(){
+    @Autowired
+    HttpSession session;
+
+    @Autowired
+    LogService logService;
+
+    public void insertLog(String operation){
         Log log = new Log();
+
+        System.out.println(session.getAttribute("workNumber") + "++++++++++++++++++++++++");
+
+//        log.setWorkNumber(session.getAttribute("workNumber").toString());
+        log.setWorkNumber("11111");
+        log.setOperation(operation);
         SimpleDateFormat sdf = new SimpleDateFormat("yy_MM_dd HH:mm:ss");
         String date = sdf.format(new Date());
         log.setCreatetime(date);
-        return log;
+        logService.insert(log);
     }
 
 }
