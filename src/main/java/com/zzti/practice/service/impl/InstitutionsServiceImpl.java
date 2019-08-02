@@ -7,7 +7,6 @@ import com.zzti.practice.mapper.InstitutionsMapper;
 import com.zzti.practice.service.InstitutionsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
 /**

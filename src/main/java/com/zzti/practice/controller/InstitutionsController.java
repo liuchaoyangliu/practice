@@ -2,7 +2,6 @@ package com.zzti.practice.controller;
 
 
 import com.zzti.practice.entity.Institutions;
-import com.zzti.practice.entity.User;
 import com.zzti.practice.service.InstitutionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

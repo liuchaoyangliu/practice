@@ -3,7 +3,6 @@ package com.zzti.practice.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zzti.practice.service.LogService;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
