@@ -25,8 +25,8 @@ public class Log extends Model<Log> {
 
     private String operation;
 
-    @TableField("workNumber")
-    private byte[] workNumber;
+
+    private String workNumber;
 
 
     public Integer getId() {
@@ -53,11 +53,11 @@ public class Log extends Model<Log> {
         this.operation = operation;
     }
 
-    public byte[] getWorkNumber() {
+    public String getWorkNumber() {
         return workNumber;
     }
 
-    public void setWorkNumber(byte[] workNumber) {
+    public void setWorkNumber(String workNumber) {
         this.workNumber = workNumber;
     }
 

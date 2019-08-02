@@ -1,9 +1,16 @@
 package com.zzti.practice.controller;
 
 
+import com.zzti.practice.entity.Institutions;
+import com.zzti.practice.entity.User;
+import com.zzti.practice.service.InstitutionsService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * <p>
@@ -16,6 +23,17 @@ import org.springframework.stereotype.Controller;
 @Controller
 @RequestMapping("/institutions")
 public class InstitutionsController {
+
+    @Autowired
+    InstitutionsService institutionsService;
+
+    @ResponseBody
+    @GetMapping("/getInstitutions")
+    public Institutions getUser(@RequestParam(value = "id", defaultValue = "1") int id){
+        System.out.println("查询机构");
+        System.out.println(id);
+        return institutionsService.getInstitutions(id);
+    }
 
 }
 

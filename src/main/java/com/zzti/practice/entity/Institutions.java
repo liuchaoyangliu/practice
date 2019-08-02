@@ -1,6 +1,7 @@
 package com.zzti.practice.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
@@ -31,6 +32,7 @@ public class Institutions extends Model<Institutions> {
     /**
      * 机构描述
      */
+    @TableField("'describe'")
     private String describe;
 
 

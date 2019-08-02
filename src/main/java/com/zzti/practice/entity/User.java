@@ -56,7 +56,7 @@ public class User extends Model<User> {
     /**
      * 职位
      */
-    private Integer position;
+    private String position;
 
     /**
      * 所属机构
@@ -130,11 +130,11 @@ public class User extends Model<User> {
         this.phone = phone;
     }
 
-    public Integer getPosition() {
+    public String getPosition() {
         return position;
     }
 
-    public void setPosition(Integer position) {
+    public void setPosition(String position) {
         this.position = position;
     }
 

@@ -181,6 +181,12 @@
             <version>1.2.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>net.oschina.durcframework</groupId>
+            <artifactId>fastmybatis-spring-boot-starter</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
         <!--json解析工具包-->
         <dependency>
             <groupId>org.json</groupId>

@@ -1,5 +1,6 @@
 package com.zzti.practice.config;
 
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +27,14 @@ public class Config {
         FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(urlBasedCorsConfigurationSource));
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
+    }
+
+
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+//        paginationInterceptor.setLocalPage(true);// 开启 PageHelper 的支持
+        return paginationInterceptor;
     }
 
 }

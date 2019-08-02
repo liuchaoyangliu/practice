@@ -13,4 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface InstitutionsService extends IService<Institutions> {
 
+    Institutions getInstitutions(int id);
+
 }
