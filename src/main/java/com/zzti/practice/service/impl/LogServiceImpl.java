@@ -32,6 +32,7 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements LogSe
 
     @Override
     public void insert(Log log) {
+
         logMapper.insert(log);
     }
 
@@ -44,5 +45,28 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements LogSe
         System.out.println(mapIPage.toString());
         logUtil.insertLog("获取日志列表");
         return mapIPage;
+    }
+
+    @Override
+    public void deleteLog(int id) {
+
+        logUtil.insertLog("单个删除日志");
+        logMapper.delete(new QueryWrapper<Log>().eq("id", id));
+    }
+
+    @Override
+    public IPage searchList(int pageNum, int pageSize, String mes) {
+
+        Page<Log> logPage = new Page<>(pageNum, pageSize);
+        QueryWrapper<Log> wrapper = new QueryWrapper<Log>()
+                .like("id", mes)
+                .or()
+                .like("createtime", mes)
+                .or()
+                .like("operation", mes)
+                .or()
+                .like("workNumber", mes);
+        logUtil.insertLog("搜索日志");
+        return logMapper.selectMapsPage(logPage, wrapper);
     }
 }

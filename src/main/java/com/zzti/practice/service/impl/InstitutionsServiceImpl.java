@@ -29,7 +29,9 @@ public class InstitutionsServiceImpl extends ServiceImpl<InstitutionsMapper, Ins
 
     @Override
     public Institutions getInstitutions(int id) {
-        QueryWrapper<Institutions> queryWrapper = new QueryWrapper<Institutions>().eq("id", id);
+
+        QueryWrapper<Institutions> queryWrapper = new QueryWrapper<Institutions>()
+                .eq("id", id);
         logUtil.insertLog("获取机构列表");
         return institutionsMapper.selectOne(queryWrapper);
     }

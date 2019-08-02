@@ -18,4 +18,8 @@ public interface LogService extends IService<Log> {
 
     IPage getList(int pageNum, int pageSize);
 
+    void deleteLog(int id);
+
+    IPage searchList(int pageNum, int pageSize, String mes);
+
 }

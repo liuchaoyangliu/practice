@@ -29,7 +29,7 @@ public class InstitutionsController {
 
     @ResponseBody
     @GetMapping("/getInstitutions")
-    public Institutions getUser(@RequestParam(value = "id", defaultValue = "1") int id){
+    public Institutions getUser(@RequestParam(value = "id") int id){
         System.out.println("查询机构");
         System.out.println(id);
         return institutionsService.getInstitutions(id);

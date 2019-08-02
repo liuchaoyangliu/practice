@@ -15,4 +15,6 @@ public interface InstitutionsService extends IService<Institutions> {
 
     Institutions getInstitutions(int id);
 
+
+
 }

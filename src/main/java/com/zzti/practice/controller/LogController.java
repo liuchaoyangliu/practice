@@ -28,9 +28,30 @@ public class LogController {
     @GetMapping("/getList")
     public IPage getList1(@RequestParam(value = "page", defaultValue = "1") Integer pageNum,
                           @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize){
+
         System.out.println("获取日志列表方法");
         return logService.getList(pageNum, pageSize);
     }
+
+
+    @ResponseBody
+    @GetMapping("/deleteLog")
+    public void deleteLog(@RequestParam(value = "id") Integer id){
+
+        System.out.println("删除单个日志");
+        logService.deleteLog(id);
+    }
+
+    @ResponseBody
+    @GetMapping("/searchLog")
+    public IPage searchLogList(@RequestParam(value = "page", defaultValue = "1") Integer pageNum,
+                              @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+                              @RequestParam(value = "search") String mes){
+
+        System.out.println("日志搜索方法");
+        return logService.searchList(pageNum, pageSize, mes);
+    }
+
 
 }
 

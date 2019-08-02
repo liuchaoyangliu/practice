@@ -32,13 +32,13 @@ public class UserController {
     @GetMapping("/login")
     public String login(@RequestParam(value = "username") String username,
                         @RequestParam(value = "password") String password) {
-        System.out.println("登录方法");
 
+        System.out.println("登录方法");
         User login = userService.login(username, password);
         if(login != null){
 
             session.setAttribute("workNumber", login.getWorkNumber());
-            System.out.println(session.getAttribute("workNumber") + "########################");
+            System.out.println(session.getAttribute("workNumber"));
             return "success";
         }
         return "failure";
@@ -79,7 +79,7 @@ public class UserController {
     @RequestMapping(value = "/updateUser", method = RequestMethod.POST)
     public void updateUser(@RequestBody User user) {
         System.out.println(user.toString());
-
+        System.out.println("更新用户信息");
         userService.updateUser(user);
 
     }
