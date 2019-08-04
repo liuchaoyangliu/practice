@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zzti.practice.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 
 /**
  * <p>
@@ -26,4 +28,12 @@ public interface UserService extends IService<User> {
     User getUser(String workNumber);
 
     void updateUser(User user);
+
+    void deleteListUser(List<User> list);
+
+    IPage getNotAcceptedList(int pageNum, int pageSize);
+
+    void acceptedUser(String workNumber,Integer flag);
+
+    IPage getUsetListByInstitutionsId(int pageNum, int pageSize, Integer id);
 }

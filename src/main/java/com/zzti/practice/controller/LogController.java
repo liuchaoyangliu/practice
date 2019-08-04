@@ -2,11 +2,14 @@ package com.zzti.practice.controller;
 
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.zzti.practice.entity.Log;
 import com.zzti.practice.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
+
+import java.util.List;
 
 /**
  * <p>
@@ -49,6 +52,17 @@ public class LogController {
 
         System.out.println("日志搜索方法");
         return logService.searchList(pageNum, pageSize, mes);
+    }
+
+    @ResponseBody
+    @PostMapping("/deleteListLog")
+    public void deleteListLog(@RequestBody List<Log> list){
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
+        logService.deleteListLog(list);
     }
 
 

@@ -1,15 +1,13 @@
 package com.zzti.practice.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zzti.practice.entity.Institutions;
 import com.zzti.practice.service.InstitutionsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * <p>
@@ -33,6 +31,27 @@ public class InstitutionsController {
         System.out.println(id);
         return institutionsService.getInstitutions(id);
     }
+
+    @ResponseBody
+    @GetMapping("/getInstitutionsList")
+    public IPage getInstitutionsList(@RequestParam(value = "page", defaultValue = "1") Integer pageNum,
+                                     @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize){
+
+        return institutionsService.getList(pageNum, pageSize);
+    }
+
+    @ResponseBody
+    @PostMapping("/updateInstitutions")
+    public void updateInstitutions(@RequestBody Institutions institutions){
+        institutionsService.updateInstitutions(institutions);
+    }
+
+    @ResponseBody
+    @GetMapping("/removeInstitutions")
+    public void removeInstitutions(@RequestParam(value = "id") Integer id){
+        institutionsService.removeInstitutions(id);
+    }
+
 
 }
 

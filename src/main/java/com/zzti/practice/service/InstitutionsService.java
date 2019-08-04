@@ -1,5 +1,6 @@
 package com.zzti.practice.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zzti.practice.entity.Institutions;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -15,6 +16,9 @@ public interface InstitutionsService extends IService<Institutions> {
 
     Institutions getInstitutions(int id);
 
+    IPage getList(int pageNum, int pageSize);
 
+    void updateInstitutions(Institutions institutions);
 
+    void removeInstitutions(int id);
 }

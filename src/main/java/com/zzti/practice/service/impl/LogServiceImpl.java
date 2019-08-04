@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -68,5 +69,14 @@ public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements LogSe
                 .like("workNumber", mes);
         logUtil.insertLog("搜索日志");
         return logMapper.selectMapsPage(logPage, wrapper);
+    }
+
+    @Override
+    public void deleteListLog(List<Log> list) {
+
+        logUtil.insertLog("单个删除日志");
+        for (int i = 0; i < list.size(); i++) {
+            logMapper.delete(new QueryWrapper<Log>().eq("id", list.get(i).getId()));
+        }
     }
 }

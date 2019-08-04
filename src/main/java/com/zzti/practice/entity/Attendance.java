@@ -8,11 +8,11 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author lcy
- * @since 2019-07-29
+ * @since 2019-08-04
  */
 public class Attendance extends Model<Attendance> {
 
@@ -22,7 +22,7 @@ public class Attendance extends Model<Attendance> {
      * 每一条记录id
      */
     @TableId(value = "id", type = IdType.AUTO)
-    private String id;
+    private Integer id;
 
     /**
      * 考勤的时间
@@ -40,12 +40,16 @@ public class Attendance extends Model<Attendance> {
      */
     private String status;
 
+    /**
+     * 备注
+     */
+    private String note;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -73,6 +77,14 @@ public class Attendance extends Model<Attendance> {
         this.status = status;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     @Override
     protected Serializable pkVal() {
         return this.id;
@@ -81,10 +93,11 @@ public class Attendance extends Model<Attendance> {
     @Override
     public String toString() {
         return "Attendance{" +
-        "id=" + id +
-        ", time=" + time +
-        ", workNumber=" + workNumber +
-        ", status=" + status +
-        "}";
+                "id=" + id +
+                ", time=" + time +
+                ", workNumber=" + workNumber +
+                ", status=" + status +
+                ", note=" + note +
+                "}";
     }
 }

@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author lcy
@@ -32,9 +32,8 @@ public class Institutions extends Model<Institutions> {
     /**
      * 机构描述
      */
-    @TableField("'describe'")
+    @TableField("`describe`")
     private String describe;
-
 
     public Integer getId() {
         return id;

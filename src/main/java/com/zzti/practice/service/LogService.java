@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zzti.practice.entity.Log;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -21,5 +23,7 @@ public interface LogService extends IService<Log> {
     void deleteLog(int id);
 
     IPage searchList(int pageNum, int pageSize, String mes);
+
+    void deleteListLog(List<Log> list);
 
 }

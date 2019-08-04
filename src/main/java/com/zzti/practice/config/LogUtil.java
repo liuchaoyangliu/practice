@@ -12,19 +12,17 @@ import java.util.Date;
 @Service
 public class LogUtil {
 
-    @Autowired
-    HttpSession session;
 
     @Autowired
     LogService logService;
 
+    @Autowired
+    SessionUtil sessionUtil;
+
     public void insertLog(String operation){
         Log log = new Log();
 
-        System.out.println(session.getAttribute("workNumber") + "++++++++++++++++++++++++");
-
-//        log.setWorkNumber(session.getAttribute("workNumber").toString());
-        log.setWorkNumber("11111");
+        log.setWorkNumber(sessionUtil.getWorkNumber());
         log.setOperation(operation);
         SimpleDateFormat sdf = new SimpleDateFormat("yy_MM_dd HH:mm:ss");
         String date = sdf.format(new Date());
