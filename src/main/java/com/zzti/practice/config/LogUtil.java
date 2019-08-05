@@ -5,7 +5,6 @@ import com.zzti.practice.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,7 +23,7 @@ public class LogUtil {
 
         log.setWorkNumber(sessionUtil.getWorkNumber());
         log.setOperation(operation);
-        SimpleDateFormat sdf = new SimpleDateFormat("yy_MM_dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
         String date = sdf.format(new Date());
         log.setCreatetime(date);
         logService.insert(log);

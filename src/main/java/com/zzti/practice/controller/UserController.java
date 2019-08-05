@@ -106,12 +106,11 @@ public class UserController {
         userService.acceptedUser(workNumber, 1);
     }
 
-
     @ResponseBody
     @GetMapping("/getUsetListByInstitutionsId")
     public IPage getUsetListByInstitutionsId(@RequestParam(value = "page", defaultValue = "1") Integer pageNum,
                                              @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                                             @RequestParam(value = "id")Integer id){
+                                             @RequestParam(value = "id",defaultValue = "4")Integer id){
 
         IPage list = userService.getUsetListByInstitutionsId(pageNum, pageSize, id);
         return list;

@@ -46,7 +46,7 @@ public class InsertUser {
             ps=con.prepareStatement(sql);
             //填充占位符
             for (int i = 10; i < 50; i++) {
-                ps.setString(1, 20190700 + i + 1 + "");
+                ps.setString(1, 20190800 + i + 1 + "");
                 ps.setString(2, "玉皇大帝");
                 ps.setInt(3, 18);
                 ps.setString(4, "女");

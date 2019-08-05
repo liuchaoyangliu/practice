@@ -3,6 +3,9 @@ package com.zzti.practice.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zzti.practice.entity.Attendance;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zzti.practice.entity.User;
+
+import java.util.List;
 
 /**
  * <p>
@@ -20,4 +23,7 @@ public interface AttendanceService extends IService<Attendance> {
 
     IPage searchAttendance(int pageNum, int pageSize, String mes);
 
+    void insertAttendance(String workNumber, String status);
+
+    void listAttendance(List<User> users);
 }

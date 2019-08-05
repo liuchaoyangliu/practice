@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 /**
  * <p>
  *  前端控制器
@@ -52,6 +54,19 @@ public class InstitutionsController {
         institutionsService.removeInstitutions(id);
     }
 
+    @ResponseBody
+    @GetMapping("/addInstitutions")
+    public void addInstitutions(@RequestParam(value = "name") String name,
+                                @RequestParam(value = "describe") String describe){
+
+        institutionsService.addInstitutions(name, describe);
+    }
+
+    @ResponseBody
+    @GetMapping("/getAllInstitutions")
+    public List getInstitutions(){
+
+        return institutionsService.getInstitutions();
+    }
 
 }
-

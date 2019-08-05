@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -44,7 +45,8 @@ public class InstitutionsServiceImpl extends ServiceImpl<InstitutionsMapper, Ins
     public IPage getList(int pageNum, int pageSize) {
         Page<Institutions> page = new Page<>(pageNum, pageSize);
         QueryWrapper<Institutions> queryWrapper = new QueryWrapper<>();
-        IPage<Map<String, Object>> mapIPage = institutionsMapper.selectMapsPage(page, queryWrapper);
+        IPage<Map<String, Object>> mapIPage =
+                institutionsMapper.selectMapsPage(page, queryWrapper);
         logUtil.insertLog("获取机构列表");
         return mapIPage;
     }
@@ -52,10 +54,10 @@ public class InstitutionsServiceImpl extends ServiceImpl<InstitutionsMapper, Ins
     @Override
     public void updateInstitutions(Institutions institutions) {
 
-        logUtil.insertLog("更新机构信息");
         UpdateWrapper<Institutions> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("id", institutions.getId());
         institutionsMapper.update(institutions, updateWrapper);
+        logUtil.insertLog("更新机构信息");
     }
 
     @Override
@@ -64,6 +66,24 @@ public class InstitutionsServiceImpl extends ServiceImpl<InstitutionsMapper, Ins
         QueryWrapper<Institutions> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("id", id);
         institutionsMapper.delete(queryWrapper);
+        logUtil.insertLog("删除机构");
+    }
+
+    @Override
+    public void addInstitutions(String name, String describe) {
+        Institutions institutions = new Institutions();
+        institutions.setName(name);
+        institutions.setDescribe(describe);
+        institutionsMapper.insert(institutions);
+        logUtil.insertLog("新增机构");
+    }
+
+    @Override
+    public List getInstitutions() {
+
+        List<Institutions> list = institutionsMapper.selectList(null);
+        logUtil.insertLog("获取所有机构");
+        return list;
     }
 
 }

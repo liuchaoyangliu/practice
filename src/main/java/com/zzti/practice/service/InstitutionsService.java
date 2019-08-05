@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zzti.practice.entity.Institutions;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -21,4 +23,8 @@ public interface InstitutionsService extends IService<Institutions> {
     void updateInstitutions(Institutions institutions);
 
     void removeInstitutions(int id);
+
+    void addInstitutions(String name, String describe);
+
+    List getInstitutions();
 }

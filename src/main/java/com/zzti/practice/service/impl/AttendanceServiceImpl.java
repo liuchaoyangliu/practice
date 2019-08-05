@@ -6,13 +6,16 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zzti.practice.config.LogUtil;
 import com.zzti.practice.entity.Attendance;
+import com.zzti.practice.entity.User;
 import com.zzti.practice.mapper.AttendanceMapper;
 import com.zzti.practice.service.AttendanceService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
@@ -59,6 +62,36 @@ public class AttendanceServiceImpl extends ServiceImpl<AttendanceMapper, Attenda
                 attendanceMapper.selectPage(page, queryWrapper);
         logUtil.insertLog("查询考勤信息");
         return attendanceIPage;
+    }
+
+    @Override
+    public void insertAttendance(String workNumber, String status) {
+
+        Attendance attendance = new Attendance();
+        attendance.setWorkNumber(workNumber);
+        attendance.setStatus(status);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+        attendance.setTime(sdf.format(new Date()));
+        attendanceMapper.insert(attendance);
+        logUtil.insertLog("添加一条考勤信息");
+    }
+
+    @Override
+    public void listAttendance(List<User> users) {
+
+        Attendance attendance = new Attendance();
+        attendance.setStatus("以到");
+        User user ;
+        for (int i = 0; i < users.size(); i++) {
+            user = users.get(i);
+            attendance.setWorkNumber(user.getWorkNumber());
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd HH:mm:ss");
+            attendance.setTime(sdf.format(new Date()));
+            attendanceMapper.insert(attendance);
+        }
+        logUtil.insertLog("批量签到成功");
+
     }
 
 }
