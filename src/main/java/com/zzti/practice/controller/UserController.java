@@ -32,13 +32,10 @@ public class UserController {
     @ResponseBody
     @GetMapping("/login")
     public String login(@RequestParam(value = "username") String username,
-                        @RequestParam(value = "password") String password
-    ) {
+                        @RequestParam(value = "password") String password) {
 
         User login = userService.login(username, password);
         sessionUtil.setWorkNumber(login.getWorkNumber());
-        System.out.println(login.getWorkNumber() + "###########login.getWorkNumber()#############");
-
         if(login != null){
             return "success";
         }
@@ -116,5 +113,12 @@ public class UserController {
         return list;
     }
 
+    @ResponseBody
+    @GetMapping("/getCurrentUser")
+    public User getCurrentUser(){
+        User user = userService.getCurrentUser();
+        System.out.println(user);
+        return user;
+    }
 }
 

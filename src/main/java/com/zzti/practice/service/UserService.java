@@ -27,6 +27,8 @@ public interface UserService extends IService<User> {
 
     User getUser(String workNumber);
 
+    User getCurrentUser();
+
     void updateUser(User user);
 
     void deleteListUser(List<User> list);

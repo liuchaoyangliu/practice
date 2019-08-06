@@ -92,6 +92,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
+    public User getCurrentUser() {
+
+        String workNumber = sessionUtil.getWorkNumber();
+        QueryWrapper<User> queryWrapper =
+                new QueryWrapper<User>().eq("workNumber", workNumber);
+        User user = userMapper.selectOne(queryWrapper);
+        logUtil.insertLog("获取当前用户信息");
+        return user;
+    }
+
+    @Override
     public void updateUser(User user) {
 
         logUtil.insertLog("更新用户信息");
